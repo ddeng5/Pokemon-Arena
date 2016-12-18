@@ -82,5 +82,5 @@ public class PokemonArena {
     		a.setEnergy();
     	}
     }
-
+ 
 }

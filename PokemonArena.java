@@ -82,5 +82,60 @@ public class PokemonArena {
     		a.setEnergy();
     	}
     }
- 
+   	public static boolean fight(Pokemon a,Pokemon d,int attacknumber,String porAi){
+   		// i realize that you asked to put this in our Pokemon class instead
+   		// but it was far too late for me to change it
+   		// does the damage between 2 pokemons
+   		//pokemon a is the attacking pokemon and pokemon d is the defending pokemon.
+   		//porAi is used to determin wheter its a person or Ai as the attacking pokemon
+   		// attacknumber is used in order to determin what attack the attaccking pokemon is going to do
+		double specdamage= getSpecialDamage(a,d);//gets if there is any special damage being done by their types
+		int num=(int)(Math.random()*100);
+		setSpecial(a,d, attacknumber);//checks if the move will do any type of special damage to the enemy or the player
+		if (!a.getState().equals("Stun")){//if the attacking pokemon is stunned it can't move
+			if (d.getState().equals("Wild Storm")){//if the defending pokemon is in a wild strom it could get affected
+				while (num>50){//50/50 chance of attacking
+					if (a.getEnergy()>a.getEnergyCost(attacknumber)){
+			    		d.setHp((int)((a.getDamage(attacknumber))*specdamage));
+			    		System.out.println("During he wild storm, "+a.getName()+" used "+a.attacks.get(attacknumber).getName()+" and did "+a.getDamage(attacknumber)*specdamage+" damage to "+ d.getName()+"!");
+			    		System.out.println(d.getName()+" has "+d.getHp()+".\n");
+					}
+					num=(int)(Math.random()*100);
+				}
+				return true;
+			}
+			else{
+				if (!a.getState().equals("Wild Card")){//wild card doesn't allow for the person to attack
+					if (a.getEnergy()>a.getEnergyCost(attacknumber)){
+						a.useEnergy(a.getEnergyCost(attacknumber));//need to still do special move cases
+			    		d.setHp((int)((a.getDamage(attacknumber))*specdamage));
+			    		System.out.println(a.getName()+" used "+a.attacks.get(attacknumber).getName()+" and did "+a.getDamage(attacknumber)*specdamage+" damage to "+ d.getName()+"!");
+			    		System.out.println(d.getName()+" has "+d.getHp()+".\n");//this is just all the interface part to make it easier for the player
+			    		return true;
+					}
+		    		else{
+			    		if (porAi.equals("p")){
+			    			System.out.println("Pokemon is too tired to do this move!\nPick another move or another option.");
+			    			playerMove();//needs to still work
+			    		}
+			    		else{
+			    			System.out.println("The enemey pokemon is too tired to move!");
+			    		}
+			    		return false;
+					}
+				}
+				else{
+					System.out.println(a.getName()+" was affected by wild card and cannot attack!");
+					return false;
+				}
+
+			}
+
+    	}
+    	else{//if a pokemon is stunned it cannot attack
+    		System.out.println(a.getName()+" is stunned!");
+    		return false;
+    	}
+	}
+
 }

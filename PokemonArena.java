@@ -137,5 +137,16 @@ public class PokemonArena {
     		return false;
     	}
 	}
+	public static void choosebadguy(){
+		//this method is used to choose the badguys
+		//its just the remaining pokemons that are not chosen but picked in random order
+		//so then the enemy pokemon will always be the first one in the list
+		stat.remove(0);
+		while (stat.size()>0){
+			int badguynumber=(int)(Math.random()*stat.size());//generate badguy pokemons in a random order
+			enemies.add(new Pokemon(stat.get(badguynumber)));
+			stat.remove(badguynumber);
+		}
+	}
 
 }

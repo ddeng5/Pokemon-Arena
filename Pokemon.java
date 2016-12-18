@@ -93,5 +93,31 @@ public class Pokemon {
 	public String getState(){
 		return state;
 	}
-
+	public void allStats(){
+	// its useful for me display the current condition of the pokemon
+		System.out.println("name: "+name+"\nhealth: "+hp+"\nenergy: "+energy+"\nstate: "+state+"\n");
+	}
+	public void getAttackName(){
+	//gives the all the attack names so the user knows what attack he prefers
+		for (int i=0;i<attacks.size();i++){
+			System.out.println(i+") "+attacks.get(i).getName());
+		}
+	}
+	public int getDamage(int attnum){
+	//these are used for getting the damage of a certain attack
+		return attacks.get(attnum).getDamage();
+	}
+	public int getEnergyCost(int attnum){
+	//these are used for getting the energy cost of a certain attack
+		return attacks.get(attnum).getEnergy();
+	}
+	public String getSpecial (int attnum){
+	//these are used for getting the special of a certain attack
+		return attacks.get(attnum).getSpecial();
+	}
+	public void resetState(){
+	//resets the state after each turn so the pokemon is not trapped forever
+		state="";
+	}
+	
 }

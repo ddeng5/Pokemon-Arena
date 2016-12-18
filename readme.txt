@@ -1,0 +1,1 @@
+This project is still a work in progress. Feel free to help contribute. This program can be run simply through an IDE but an "attack" class needs to be created by looping through the text-file database and obtaining the "attack" information.

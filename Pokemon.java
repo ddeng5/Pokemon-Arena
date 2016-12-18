@@ -36,5 +36,62 @@ public class Pokemon {
     		attacks.add(new Attack(pokestats[i*4+6],pokestats[i*4+9],Integer.parseInt(pokestats[i*4+7]),Integer.parseInt(pokestats[i*4+8])));
     	}
     }
+    public String getName(){
+    //method to help for display
+		return name;
+    }
+    public int getHp(){
+    //gets the hp of the pokemon
+    	if (hp<0){
+    		hp=0;
+    	}
+    	return hp;
+    }
+    public int getEnergy(){
+    	return energy;
+    }
+    public String getWeakness(){
+    	return weakness;
+    }
+    public String getResistance(){
+    	return resistance;
+	}
+	public String getType(){
+		return type;
+	}
+	public void useEnergy(int used){
+		energy-=used;
+	}
+	public void setHp(int lost){
+		hp-=lost;
+		if (hp<=0){
+			alive=false;
+		}
+	}
+	public boolean state(){
+		return alive;
+	}
+	public void heal(){
+		if (hp<maxhp){
+			hp+=20;
+		}
+		if (hp>maxhp){//make sure it doesn't go above the limit
+			hp=maxhp;
+		}
+	}
+	public void setEnergy(){
+		if (energy<50){
+			energy+=10;
+		}
+		if (energy>50){//make sure it doesn't go above the limit
+			energy=50;
+		}
+	}
+	public void setState(String s){
+		state=s;
+	}
+	public String getState(){
+		return state;
+	}
 
 }

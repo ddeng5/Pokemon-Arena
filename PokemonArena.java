@@ -59,5 +59,28 @@ public class PokemonArena {
     		return specialdamage;
     	}
     }
+    private static void setSpecial(Pokemon a,Pokemon d,int attnum){
+    	//this method is used to set the specialstate that the attacking or defending pokemon is feeling
+    	//it does the probability here and it 50/50 chance for both
+    	if (a.getSpecial(attnum).equals("stun") && Math.random()*100>=50){
+    		d.setState("Stun");
+    	}
+    	if (a.getSpecial(attnum).equals("wild card")&& Math.random()*100>=50){
+    		a.setState("Wild Card");
+    	}
+    	if(a.getSpecial(attnum).equals("disable")){
+    		for(int i=0;i<d.attacks.size();i++){
+    			d.attacks.get(i).setDamage(10);
+    			d.attacks.get(i).makeSure();//makes sure that the damage set counter is not less than zero
+    		}
+    	}
+    	if (a.getSpecial(attnum).equals("wild storm") && Math.random()*100>=50){
+    		d.setState("Wild Storm");
+    	}
+    	if (a.getSpecial(attnum).equals("recharge")){
+    		a.setEnergy();//sets ten each time so lets call it twice instead, i should probably change this
+    		a.setEnergy();
+    	}
+    }
 
 }

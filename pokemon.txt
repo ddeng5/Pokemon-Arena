@@ -25,4 +25,10 @@ Pikachu,50,electric, ,fire,2,Quick Attack,10,20, ,Agility,30,0,disable
 Pidgey,40,fighting,earth,electric,1,Whirlwind,15,20,stun
 Spearow,50,fighting,earth,electric,2,Peck,10,10, ,Mirror Move,20,30,wild card
 Doduo,50,fighting,earth,electric,1,Fury Attack,20,40,wild card
-Jigglypuff,60,fighting,fighting,fire,2,Lullaby,30,10,stun,Pound,20,25, 
+Jigglypuff,60,fighting, ,fire,2,Lullaby,30,10,stun,Pound,20,25,
+Gyarados,100,dragon,flying,water,2,Dragon Rage,40,10,Hydro Pump,35,15
+Celebi,80,grass,flying,psychic,1,Psychic,25,10,Razor Leaf,25,15
+Evee,40,normal, , ,1,Scratch,10,20,Hyper Fang,35,8
+Magikarp,15,water, , ,1,Splash,0,30,Water Gun,15,20
+Scyther,35,grass,flying, ,2,Swipe,20,15,X-Cut,30,10
+ 

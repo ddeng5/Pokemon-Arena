@@ -217,6 +217,25 @@ public class PokemonArena {
 			//you do nothing if its pass
 		}
 	} //looks cleaner in the main while loop
+	public static void BadGuyMove(){
+		//this method decides on what attcck the bad guy does
+		//what it does is first finds all the possible attacks
+		//and then it picks one at random
+		ArrayList <Integer> possible= getPossibleAttacks(enemies.get(0));
+		int bgmove=(int)(Math.random()*possible.size());
+		fight(enemies.get(0),stuffchosen.get(pokenum),bgmove,"ai");
+	}//looks cleaner in the main while loop
+	public static ArrayList<Integer> getPossibleAttacks(Pokemon a){
+	//finds all the possible attacks, used for bad guy move
+		ArrayList <Integer> possible= new ArrayList <Integer>();
+		for (int i=0; i<a.attacks.size();i++){
+			if (a.attacks.get(i).getEnergy()<a.getEnergy()){
+				possible.add(i);
+			}
+		}
+		return possible;
+	}
+
 
 
 }

@@ -166,6 +166,57 @@ public class PokemonArena {
     			stat.add(inFile.nextLine());
     	}
 	}//cleaner and looks nicer in the main loop
+	public static void playerMove(){
+		//this method is just give the user options to what he can do
+		System.out.println("What will you do?\n 1)attack\n 2)retreat (pokemon must not be stunned)\n 3)pass");
+		while (true){//this is to ensure that the user makes the right choice
+			option=kb.nextInt();
+			if (option>0 && option<4){
+				break;
+			}
+			else{
+				System.out.println("Please pick a valid option.");
+			}
+		}
+		if (option==1){//this is the attack part
+			stuffchosen.get(pokenum).getAttackName();
+			while(true){//in order to make sure the personpicks a valid number
+				attnumber=kb.nextInt();
+				if (attnumber>=0 && attnumber<stuffchosen.get(pokenum).attacks.size()){
+					break;
+				}
+				else{
+					System.out.println("Please pick a option from the ones given.");
+				}
+			}
+			fight(stuffchosen.get(pokenum),enemies.get(1),attnumber,"p");
+		}
+		else if (option==2){//makes sure if you're stunned than you cannot retreat
+			if ("Stun".equals(stuffchosen.get(pokenum).getState())){
+				System.out.println("Your pokemon is stunned, it cannot retreat!");
+				playerMove();//will stay in the recursive loop while the player makes the correct decision
+			}
+			else{
+				System.out.println("Pick your Pokemon!");
+				for(int i=0;i<stuffchosen.size();i++){
+					System.out.println(i+") "+stuffchosen.get(i).getName());
+				}
+				while(true){
+					pokenum=kb.nextInt();
+					if (pokenum>1 || pokenum<stuffchosen.size()){
+						break;
+					}
+					else{
+						System.out.println("Please pick a option from the ones given.");
+					}
+				}
+			}
+		}
+
+		else if(option==3){
+			//you do nothing if its pass
+		}
+	} //looks cleaner in the main while loop
 
 
 }

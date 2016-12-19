@@ -189,7 +189,7 @@ public class PokemonArena {
 					System.out.println("Please pick a option from the ones given.");
 				}
 			}
-			fight(stuffchosen.get(pokenum),enemies.get(1),attnumber,"p");
+			fight(stuffchosen.get(pokenum),enemies.get(0),attnumber,"p");
 		}
 		else if (option==2){//makes sure if you're stunned than you cannot retreat
 			if ("Stun".equals(stuffchosen.get(pokenum).getState())){
@@ -203,7 +203,7 @@ public class PokemonArena {
 				}
 				while(true){
 					pokenum=kb.nextInt();
-					if (pokenum>1 || pokenum<stuffchosen.size()){
+					if (pokenum>0 && pokenum<stuffchosen.size()){
 						break;
 					}
 					else{

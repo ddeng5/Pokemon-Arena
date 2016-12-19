@@ -236,6 +236,36 @@ public class PokemonArena {
 		return possible;
 	}
 
+	//this is the main class that will run the game
+    public static void main(String [] args)throws IOException{
+    	//this is the where i call all my methods and the main gameplay happens
+    	//first i load the text file
+    	//then i let the user pick and then bad guy pick
+    	//then i let the bad guy pick
+    	//then the fighting starts
+    	//where its randomized on who starts and the turn alternates between the user and the computer
+    	//finally if you lose all four pokemons or beat the comptuer the game ends
+    	int count;
+    	boolean SupremeTrainer=false;
+    	loadFile();//just load the file and puts it in an arraylist
+    	for(int i=0;i<4;i++){//you choose the pokemon you want (i remove the pokemon that was chosen and show the options again)
+    		stuffchosen.add(new Pokemon(choose()));
+    	}
+    	choosebadguy();//randomly puts the badguys
+	  	System.out.println("Pick your Pokemon!");
+		for(int i=0;i<stuffchosen.size();i++){//asks the user what pokemon to start with
+			System.out.println((i+1)+") "+stuffchosen.get(i).getName());
+		}
+		while (true){//make sure a valid number is chosen
+			pokenum=kb.nextInt()-1;
+			if (pokenum>=0 && pokenum<4){
+				break;
+			}
+			else{
+				System.out.println("Please pick a valid number");
+			}
+		}
 
+		
 
 }

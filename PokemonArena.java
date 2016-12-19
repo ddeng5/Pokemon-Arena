@@ -149,4 +149,23 @@ public class PokemonArena {
 		}
 	}
 
+
+	public static void loadFile(){
+		//this method is used to just openfile and put everything in a arraylist
+		//i create the objects afterwards once you pickthe pokemon
+		Scanner inFile=null;
+    	try{
+    		inFile=new Scanner (new BufferedReader (new FileReader("pokemon.txt")));
+    	}
+    	catch(IOException ex){
+    		System.out.println("Did you forget to make the pokemon.txt?");
+    	}
+    	int pos=1;
+    	stat=new ArrayList();
+    	while (inFile.hasNextLine()){
+    			stat.add(inFile.nextLine());
+    	}
+	}//cleaner and looks nicer in the main loop
+
+
 }

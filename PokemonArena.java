@@ -62,6 +62,7 @@ public class PokemonArena {
     private static void setSpecial(Pokemon a,Pokemon d,int attnum){
     	//this method is used to set the specialstate that the attacking or defending pokemon is feeling
     	//it does the probability here and it 50/50 chance for both
+			//these are the different status effects
     	if (a.getSpecial(attnum).equals("stun") && Math.random()*100>=50){
     		d.setState("Stun");
     	}
@@ -125,6 +126,7 @@ public class PokemonArena {
 					}
 				}
 				else{
+					//pokemon was affected by wildcard
 					System.out.println(a.getName()+" was affected by wild card and cannot attack!");
 					return false;
 				}
@@ -158,6 +160,7 @@ public class PokemonArena {
     		inFile=new Scanner (new BufferedReader (new FileReader("pokemon.txt")));
     	}
     	catch(IOException ex){
+				//catch error if file was not created or file could not be properly loaded
     		System.out.println("Did you forget to make the pokemon.txt?");
     	}
     	int pos=1;
@@ -175,6 +178,7 @@ public class PokemonArena {
 				break;
 			}
 			else{
+				//ensure that a valid option is selected
 				System.out.println("Please pick a valid option.");
 			}
 		}
@@ -244,7 +248,7 @@ public class PokemonArena {
     	//then i let the bad guy pick
     	//then the fighting starts
     	//where its randomized on who starts and the turn alternates between the user and the computer
-    	//finally if you lose all four pokemons or beat the comptuer the game ends
+    	//finally if you lose all four pokemons or beat the computer the game ends
     	int count;
     	boolean SupremeTrainer=false;
     	loadFile();//just load the file and puts it in an arraylist
@@ -293,6 +297,7 @@ public class PokemonArena {
 	    		if (stuffchosen.get(pokenum).state()){//.state() return whter its alive or not, if its not then you pick another pokemon
 	    			playerMove();//User moves
 	    		}
+					//alternate turns
 	    		if (enemies.get(0).state()){
 	    			BadGuyMove();//Bad Guy Moves
 	    		}
@@ -312,6 +317,7 @@ public class PokemonArena {
     			for(int i=0;i<stuffchosen.size();i++){
 					System.out.println((i+1)+") "+stuffchosen.get(i).getName());
 					}
+				//pick another pokemon
 				while (true){
 					pokenum=kb.nextInt()-1;
 					if (pokenum>=0 && pokenum<stuffchosen.size()){
@@ -333,6 +339,7 @@ public class PokemonArena {
     		//stuns, and all the states have been reset
 
     	}
+			//if you've won enough games, you will become a supreme trainer
     	if (SupremeTrainer){
     		System.out.println("Congratulations you are now a Supreme Trainer!");
     		}

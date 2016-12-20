@@ -246,18 +246,18 @@ public class PokemonArena {
     	//where its randomized on who starts and the turn alternates between the user and the computer
     	//finally if you lose all four pokemons or beat the comptuer the game ends
     	int count;
-    	boolean SupremeTrainer=true;
+    	boolean SupremeTrainer=false;
     	loadFile();//just load the file and puts it in an arraylist
     	for(int i=0;i<4;i++){//you choose the pokemon you want (i remove the pokemon that was chosen and show the options again)
-    		stuffchosen.add(new Pokemon());
+    		stuffchosen.add(new Pokemon(choose()));
     	}
-
+    	choosebadguy();//randomly puts the badguys
 	  	System.out.println("Pick your Pokemon!");
 		for(int i=0;i<stuffchosen.size();i++){//asks the user what pokemon to start with
 			System.out.println((i+1)+") "+stuffchosen.get(i).getName());
 		}
 		while (true){//make sure a valid number is chosen
-			pokenum=kb.next()-1;
+			pokenum=kb.nextInt()-1;
 			if (pokenum>=0 && pokenum<4){
 				break;
 			}
@@ -266,6 +266,84 @@ public class PokemonArena {
 			}
 		}
 
+		/*commit and push the changes to github first then add the rest of the code
 
+		System.out.println(stuffchosen.get(pokenum).getName()+", I choose you!");
+		count=((int)(Math.random()*2))+1;
+		//Let the fighting begin
+    	while (true){
+    		//this is the main loop while the battle ends
+    	{//checks for deaths and other stuff and prints all the stats
+    		if (enemies.get(0).state()==false){
+    			System.out.println(enemies.get(0).getName()+" has fainted!");
+    			enemies.remove(0);
+    			for (int i=0;i<stuffchosen.size();i++){//heals all the pokemons for the user
+    				stuffchosen.get(i).heal();
+    			}
+    		}
+    		if (enemies.size()<=0){
+    			SupremeTrainer=true;
+    			break;
+    		}
+    		if (stuffchosen.size()==0){
+    			break;
+    		}
+
+
+    	}
+    		if (count%2==0){
+	    		if (stuffchosen.get(pokenum).state()){//.state() return whter its alive or not, if its not then you pick another pokemon
+	    			playerMove();//User moves
+	    		}
+	    		if (enemies.get(0).state()){
+	    			BadGuyMove();//Bad Guy Moves
+	    		}
+    		}
+    		else{
+    			if (enemies.get(0).state()){
+	    			BadGuyMove();//Bad Guy Moves
+	    		}
+	    		if (stuffchosen.get(pokenum).state()){
+	    			playerMove();//User moves
+	    		}
+    		}
+    	{//This part here checks for players pokemon's death
+    		if (stuffchosen.get(pokenum).state()==false){
+    			System.out.println(stuffchosen.get(pokenum).getName()+" has fainted!\n pick another pokemon.");
+    			stuffchosen.remove(pokenum);
+    			for(int i=0;i<stuffchosen.size();i++){
+					System.out.println((i+1)+") "+stuffchosen.get(i).getName());
+					}
+				while (true){
+					pokenum=kb.nextInt()-1;
+					if (pokenum>=0 && pokenum<stuffchosen.size()){
+						break;
+					}
+					else{
+						System.out.println("Pick an option from the given ones.");
+					}
+				}
+
+				System.out.println(stuffchosen.get(pokenum).getName()+", I choose you!");
+	    		}
+    		stuffchosen.get(pokenum).setEnergy();
+    		enemies.get(0).setEnergy();
+    	    stuffchosen.get(pokenum).resetState();
+    		enemies.get(0).resetState();
+      		stuffchosen.get(pokenum).allStats();
+    		enemies.get(0).allStats();
+    		//stuns, and all the states have been reset
+
+    	}
+    	if (SupremeTrainer){
+    		System.out.println("Congratulations you are now a Supreme Trainer!");
+    		}
+    	else{
+    		System.out.println("Thanks for play Pokemon Arena!");
+    	}
+   		}
+    }
+
+*/
 
 }

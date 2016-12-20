@@ -266,6 +266,28 @@ public class PokemonArena {
 			}
 		}
 
+		System.out.println(stuffchosen.get(pokenum).getName()+", I choose you!");
+		count=((int)(Math.random()*2))+1;
+		//Let the fighting begin
+    	while (true){
+    		//this is the main loop while the battle ends
+    	{//checks for deaths and other stuff and prints all the stats
+    		if (enemies.get(0).state()==false){
+    			System.out.println(enemies.get(0).getName()+" has fainted!");
+    			enemies.remove(0);
+    			for (int i=0;i<stuffchosen.size();i++){//heals all the pokemons for the user
+    				stuffchosen.get(i).heal();
+    			}
+    		}
+    		if (enemies.size()<=0){
+    			SupremeTrainer=true;
+    			break;
+    		}
+    		if (stuffchosen.size()==0){
+    			break;
+    		}
+
+
 
 
 

@@ -288,7 +288,24 @@ public class PokemonArena {
     		}
 
 
-
-
+    	}
+    		if (count%2==0){
+	    		if (stuffchosen.get(pokenum).state()){//.state() return whter its alive or not, if its not then you pick another pokemon
+	    			playerMove();//User moves
+	    		}
+	    		if (enemies.get(0).state()){
+	    			BadGuyMove();//Bad Guy Moves
+	    		}
+    		}
+    		else{
+    			if (enemies.get(0).state()){
+	    			BadGuyMove();//Bad Guy Moves
+	    		}
+	    		if (stuffchosen.get(pokenum).state()){
+	    			playerMove();//User moves
+	    		}
+    		}
+    	{//This part here checks for players pokemon's death
+    		
 
 }

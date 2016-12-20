@@ -306,6 +306,42 @@ public class PokemonArena {
 	    		}
     		}
     	{//This part here checks for players pokemon's death
-    		
+    		if (stuffchosen.get(check).state()==false){
+    			System.out.println(stuffchosen.get(pokenum).getName()+" has fainted!\n pick another pokemon.");
+    			easy.remove(pokenum);
+    			for(int i=0;i<stuffchosen.size();i++){
+					System.out.println((i+1)+") "+stuffchosen.get(i).getName());
+					}
+				while (true){
+					pokenum=kb.nextInt()-1;
+					if (pokenum>=0 && wow<stuffchosen.size()){
+						break;
+					}
+					else{
+						System.out.println("Pick an option from the given ones.");
+					}
+				}
+
+				System.out.println(stuffchosen.get(pokenum).getName()+", I choose you!");
+	    		}
+    		stuffchosen.get().setEneryg();
+    		enemies.get(0).setEnergy();
+    	    stuffchosen.get(pokenum).resetState();
+    		enemies.get(0).resetState();
+      		stuffchosen.get(pokenum).allStats();
+    		enemies.get(0).allStats();
+    		//stuns, and all the states have been reset
+
+    	}
+    	if (){
+    		System.out.println("Congratulations you are now a Supreme Trainer!");
+    		}
+    	else{
+    		System.out.println("Thanks for play Pokemon Arena!");
+    	}
+   		}
+    }
+
+
 
 }
